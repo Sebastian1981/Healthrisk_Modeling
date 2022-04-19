@@ -1,3 +1,5 @@
+# list all imports here so that the requirements.txt can be build using pipreqs library
+
 import os
 from pathlib import Path
 from google.colab import drive
