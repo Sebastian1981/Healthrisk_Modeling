@@ -45,4 +45,4 @@ def predict_POST():
 
 
 
-app.run()  
+app.run(host="0.0.0.0", port=int("5000"), debug=True)  
