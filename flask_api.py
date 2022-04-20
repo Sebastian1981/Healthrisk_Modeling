@@ -2,6 +2,11 @@ from flask import Flask, request
 import joblib
 import pandas as pd
 
+# start app
+app = Flask(__name__)
+
+
+# import trained model
 MODELPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling\model"
 # Load the model from the file
 filename = '/diabetes_model.pkl'
@@ -12,11 +17,9 @@ print(model)
 print('------------------------')
 
 
-
-app = Flask(__name__)
 @app.route('/')
 def home():
-    return "<h1>We are running Flask!</h1>"  
+    return "<h1>We are predicting diabetis!</h1>"  
 
 @app.route('/add', methods=['GET'])
 def add_GET():
