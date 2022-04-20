@@ -7,10 +7,7 @@ app = Flask(__name__)
 
 
 # import trained model
-MODELPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling\model"
-# Load the model from the file
-filename = '/diabetes_model.pkl'
-model = joblib.load(MODELPATH + filename)
+model = joblib.load("./model/diabetes_model.pkl")
 print('loaded trained model \n')
 print('------------------------')
 print(model)
