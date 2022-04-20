@@ -3,6 +3,7 @@
 import os
 import joblib
 import numpy as np
+import pandas as pd
 
 
 # set paths
@@ -11,9 +12,6 @@ DATAPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_
 MODELPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling\model"
 
 
-# define features and target
-features = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
-target = 'Diabetic'
 
 if __name__ == '__main__':
     print(MODELPATH)
@@ -26,8 +24,22 @@ if __name__ == '__main__':
     print('------------------------')
     
     # predict on a new sample
-    X_new = np.array([[2,180,74,24,21,23,1.4,22]])
-    print ('New sample: {}'.format(list(X_new[0])))
+    # make up some new data as dictionary as provided later in the rest api
+    data = {
+        "Pregnancies": 2.0,
+        "PlasmaGlucose": 180.0,
+        "DiastolicBloodPressure": 74.0,
+        "TricepsThickness": 24.0,
+        "SerumInsulin": 21.0,
+        "BMI": 23.0,
+        "DiabetesPedigree": 1.4,
+        "Age": 22.0
+    }
+    print(data)
+
+    # turn data into dataframe
+    X_new = pd.DataFrame.from_dict(data, orient='index').T
+    print(X_new.head())
 
     # Get a prediction
     pred = model_loaded.predict(X_new)
