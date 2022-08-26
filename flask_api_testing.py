@@ -1,6 +1,6 @@
 import requests
 
-url = 'http://127.0.0.1:5000/predict'
+url = 'http://192.168.178.63:5000/predict'
 
 data = {
         "Pregnancies": 1.0,
