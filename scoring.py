@@ -5,18 +5,14 @@ import joblib
 import numpy as np
 import pandas as pd
 
-
 # set paths
-ROOTDIR = 'H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling'
-DATAPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling\data"
-MODELPATH = "H:\Andere Computer\Mein Computer\GoogleDrive\Beruf\Freelancing\Code_Repo\Healthrisk_Modeling\model"
-
-
+ROOTDIR = os.getcwd()
+DATAPATH = os.path.join(ROOTDIR, 'data')
+MODELPATH = os.path.join(ROOTDIR, 'model')
 
 if __name__ == '__main__':
-    print(MODELPATH)
-    # Load the model from the file
-    filename = '/diabetes_model.pkl'
+    # Load the model 
+    filename = '\diabetes_model.pkl'
     model_loaded = joblib.load(MODELPATH + filename)
     print('loaded trained model \n')
     print('------------------------')
@@ -26,8 +22,8 @@ if __name__ == '__main__':
     # predict on a new sample
     # make up some new data as dictionary as provided later in the rest api
     data = {
-        "Pregnancies": 2.0,
-        "PlasmaGlucose": 180.0,
+        "Pregnancies": 5.0,
+        "PlasmaGlucose": 100.0,
         "DiastolicBloodPressure": 74.0,
         "TricepsThickness": 24.0,
         "SerumInsulin": 21.0,
